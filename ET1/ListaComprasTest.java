@@ -11,14 +11,14 @@ public class ListaComprasTest {
     @Test
     void testIncluirProduto() {
 
-        assertEquals(1, lista.incluirProduto(20, 25, 10));
+        assertEquals(1, lista.incluirProduto(20, 25, 1));
 
         lista.setVALOR_TETO_MAXIMO_LISTA(100);
         lista.setLimitarTetoMaximo(true);
 
-        assertEquals(2, lista.incluirProduto(30, 40, 50));
-        assertEquals(2, lista.incluirProduto(105, 40, 50)); // Ira aceitar ate um  valor acima do teto
-        assertEquals(3, lista.incluirProduto(105, 40, 50));
+        assertEquals(2, lista.incluirProduto(30, 40, 1));
+        assertEquals(2, lista.incluirProduto(105, 40, 1)); // Ira aceitar ate um  valor acima do teto
+        assertEquals(3, lista.incluirProduto(105, 40, 1));
 
     }
 

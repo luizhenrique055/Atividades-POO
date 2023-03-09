@@ -25,18 +25,10 @@ public class ListaCompras {
     public int incluirProduto(double ultimoValorProduto, double valorMaximoProduto, int quantidadeProdutos) {
 
         if (this.limitarTetoMaximo) {
+
             if (VALOR_TOTAL_ATUAL <= VALOR_TETO_MAXIMO_LISTA) {
-                // CODIGO REPETIDO
-                this.produtos[ID_PRODUTO] = new Produto();
 
-                this.produtos[ID_PRODUTO].setQuantidade(quantidadeProdutos);
-                this.produtos[ID_PRODUTO].setUltimoValor(ultimoValorProduto);
-                this.produtos[ID_PRODUTO].setValorMaximoParaPagar(valorMaximoProduto);
-
-                calcularValorMaximoEstimado();
-                calcularValorTotalCompra();
-
-                ID_PRODUTO++;
+                criarProdutos(ultimoValorProduto, valorMaximoProduto, quantidadeProdutos);
 
                 return 2;
 
@@ -47,20 +39,26 @@ public class ListaCompras {
             }
 
         } else {
-            // CODIGO REPETIDO
-            produtos[ID_PRODUTO] = new Produto();
 
-            this.produtos[ID_PRODUTO].setQuantidade(quantidadeProdutos);
-            this.produtos[ID_PRODUTO].setUltimoValor(ultimoValorProduto);
-            this.produtos[ID_PRODUTO].setValorMaximoParaPagar(valorMaximoProduto);
-
-            calcularValorMaximoEstimado();
-            calcularValorTotalCompra();
-
-            ID_PRODUTO++;
+            criarProdutos(ultimoValorProduto, valorMaximoProduto, quantidadeProdutos);
 
             return 1;
+
         }
+
+    }
+
+    public void criarProdutos(double ultimoValorProduto, double valorMaximoProduto, int quantidadeProdutos) {
+        produtos[ID_PRODUTO] = new Produto();
+
+        this.produtos[ID_PRODUTO].setQuantidade(quantidadeProdutos);
+        this.produtos[ID_PRODUTO].setUltimoValor(ultimoValorProduto);
+        this.produtos[ID_PRODUTO].setValorMaximoParaPagar(valorMaximoProduto);
+
+        calcularValorMaximoEstimado();
+        calcularValorTotalCompra();
+
+        ID_PRODUTO++;
     }
 
     private void calcularValorMaximoEstimado() {
