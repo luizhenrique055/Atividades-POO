@@ -1,6 +1,8 @@
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
+import javax.swing.plaf.synth.Region;
+
 public class ex4 {
     public static void main(String[] args) {
 
@@ -44,8 +46,9 @@ public class ex4 {
 
     }
 
+    // pega a soma total de dias calculada em um metodo anterior
     public static String calculaDiaDaSemana(int totalDias) {
-        int diaSemana = totalDias % 7;
+        int diaSemana = totalDias % 7 - 1;
 
         String stringDiaSemana = "";
 
@@ -76,6 +79,7 @@ public class ex4 {
         return stringDiaSemana;
     }
 
+    // recebe os dias
     public static int totalDeDiasAteMes(int mes, int ano, int dia) {
         int totalDias = 0;
 

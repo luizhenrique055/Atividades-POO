@@ -1,0 +1,8 @@
+Inlusao de varios produtos no planejamento da compra.
+Cada produto tera cadastrado o valor da ultima compra.
+Cada produto tera o valor maximo que o usuario deseja 
+pagar na compra atual.
+Uma compra podera estimar o valor total.
+Uma compra podera estimar o valor maximo.
+Uma compra podera ser limitada ao teto maximo do usuario.
+
