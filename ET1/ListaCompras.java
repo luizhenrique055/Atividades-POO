@@ -16,10 +16,10 @@ public class ListaCompras {
      * @param valorMaximoProduto valor maximo que ira pagar no produto nessa compra.
      * @param quantidadeProdutos quantidade de produtos.
      * @return
-     *         Retorna int 1 se a lista nao tenha teto maximo definido.
-     *         Retorna int 2 se a lista tenha teto maximo definido e preco do valor
+     *         Retorna int 1 se a lista nao tem teto maximo definido.
+     *         Retorna int 2 se a lista tem teto maximo definido e o preco do valor
      *         total atual ainda não ultrapassou o teto mais de uma vez.
-     *         Retorna int 3 se a lista tenha teto maximo definido e preco do valor
+     *         Retorna int 3 se a lista tem teto maximo definido e o preco do valor
      *         total atual ja ultrassou o teto mais de uma vez.
      */
     public int incluirProduto(double ultimoValorProduto, double valorMaximoProduto, int quantidadeProdutos) {
