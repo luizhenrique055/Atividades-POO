@@ -1,0 +1,16 @@
+Um investidor contratou você para liderar a equipe de desenvolvimento de uma startup. Esta empresa pretende facilitar o dia a dia das pessoas informatizando diversas tarefas corriqueiras. Uma das primeiras ideias é auxiliar as pessoas em suas compras de supermercado.
+
+O aplicativo idealizado permitirá que a pessoa inclua, no planejamento de uma compra, vários produtos. O diferencial do aplicativo é que cada produto terá cadastrado tanto o valor de sua última compra, como o valor máximo que o usuário deseja pagar na compra atual. Com base nestas informações, uma compra poderá estimar seu valor total, seu valor máximo de acordo com o desejo do usuário e, ainda, deixar o usuário escolher se quer limitar a adição de produtos a um teto de orçamento previamente.
+
+Como líder da equipe, que ainda é pequena e está em formação, suas tarefas são:
+
+1) Utilizando todos os conceitos vistos até hoje na disciplina, modele um diagrama de classe para a classe Produto do problema proposto. O modelo deve incluir atributos e métodos necessários para resolver completamente o problema. 
+
+2) Utilizando todos os conceitos vistos até hoje na disciplina, modele um diagrama de classe para a classe ListaDeCompras do problema proposto. O modelo deve incluir atributos e métodos necessários para resolver completamente o problema. Em seguida, unifique os modelos das classes Produto e ListaDeCompras, estabelecendo corretamente a relação entre elas.
+
+3) Considerando seu modelo em (2) , escreva o código do método que responde ao requisito:  incluir um produto em um planejamento de compras, considerando todas as regras descritas. Para esta tarefa, caso o método utilize métodos de outras classes, estes não precisam ser escritos - apenas precisam fazer sentido com o problema e o diagrama de classes. Em caso de métodos da mesma classe, estes sim precisam ser escritos.
+
+Obs.:
+
+    Não é necessário incluir construtores ou métodos get/set, mas indique as visibilidades de métodos e atributos.
+    Ponto extra: inclua na resposta o teste unitário para sua classe Produto.
