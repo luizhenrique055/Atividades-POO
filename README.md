@@ -1,1 +1,1 @@
-# Todos códigos implementados nesse diretorio tem Java como base.
+# Todos códigos implementados nesse diretório tem Java como base.
