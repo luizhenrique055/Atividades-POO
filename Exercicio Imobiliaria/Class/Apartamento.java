@@ -1,5 +1,6 @@
 package Class;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,8 +12,9 @@ public class Apartamento extends Imovel {
     private double taxaMensalCondominio;
 
     // construtor
-    public Apartamento(double valorDeVenda, String enderecoImovel, int anoConstrucao, double taxaMensalCondominio) {
-        super(valorDeVenda, enderecoImovel, anoConstrucao);
+    public Apartamento(double valorDeVenda, String enderecoImovel, int anoConstrucao, double taxaMensalCondominio,
+            ArrayList<String> stringDeExtras) {
+        super(valorDeVenda, enderecoImovel, anoConstrucao, stringDeExtras);
 
         if (taxaMensalCondominio >= 0) {
             this.taxaMensalCondominio = taxaMensalCondominio;
@@ -27,7 +29,10 @@ public class Apartamento extends Imovel {
     // metodos sobrescritos
     @Override
     protected void valorInicialAluguel() {
-        setValorInicialAluguel(getValorDeVenda() * TAXA_VALOR_INICIAL);
+        double total = getValorDeVenda() * TAXA_VALOR_INICIAL;
+        double acrescimos = total * getValorAcrescimos();
+
+        setValorInicialAluguel(total + acrescimos);
     }
 
     @Override
