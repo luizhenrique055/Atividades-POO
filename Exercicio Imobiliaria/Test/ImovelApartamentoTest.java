@@ -22,7 +22,7 @@ public class ImovelApartamentoTest {
     @Test
     void testValorTotalAluguelSemNadaNaLista() {
 
-        ArrayList<String> x = new ArrayList<String>(); // o valor da listinha e 0.3
+        ArrayList<String> x = new ArrayList<String>(); // o valor da listinha e 0
 
         Apartamento ap = new Apartamento(200000, null, 2000, 1000, x);
         assertEquals(ap.getValorTotalAluguel(), 1640);
