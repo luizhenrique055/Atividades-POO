@@ -7,7 +7,7 @@ import java.util.Map;
 public class Apartamento extends Imovel {
 
     // atributos apartamento
-    private static final int TAXA_DESCONTO_IDADE = 5;
+    private static final int NUMERO_DESCONTO_IDADE = 5;
     private static final double TAXA_VALOR_INICIAL = 0.004;
     private double taxaMensalCondominio;
 
@@ -43,7 +43,7 @@ public class Apartamento extends Imovel {
     @Override
     protected double precoDescontoDeIdade() {
 
-        int quoeficienteIdadeAp = (getAnoAtual() - getAnoConstrucao()) / TAXA_DESCONTO_IDADE;
+        int quoeficienteIdadeAp = (getAnoAtual() - getAnoConstrucao()) / NUMERO_DESCONTO_IDADE;
 
         Map<Integer, Double> mapDescontoPorIdade = new HashMap<Integer, Double>();
         mapDescontoPorIdade.put(0, 0d);
