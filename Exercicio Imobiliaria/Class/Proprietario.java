@@ -34,11 +34,47 @@ public class Proprietario {
 
     // #region metodos
 
+    // cria apartamento por parametros
     public void adicionarApartamento(double valorDeVenda, String enderecoImovel, int anoConstrucao,
             double taxaMensalCondominio, ArrayList<String> listaDeExtras) {
 
         this.listaImoveis.add(this.quantidadeImoveis,
                 new Apartamento(valorDeVenda, enderecoImovel, anoConstrucao, taxaMensalCondominio, listaDeExtras));
+
+        this.quantidadeImoveis++;
+
+        atualizarDados();
+
+    }
+
+    // cria apartamento recebendo o objeto apartamento
+    public void adicionarApartamento(Apartamento ap) {
+
+        this.listaImoveis.add(this.quantidadeImoveis, ap);
+
+        this.quantidadeImoveis++;
+
+        atualizarDados();
+
+    }
+
+    // cria casa por parametros
+    public void adicionarCasa(double valorDeVenda, String enderecoImovel, int anoConstrucao, double taxaSeguroIncendio,
+            ArrayList<String> listaDeExtras) {
+
+        this.listaImoveis.add(this.quantidadeImoveis,
+                new Casa(taxaSeguroIncendio, enderecoImovel, anoConstrucao, taxaSeguroIncendio, listaDeExtras));
+
+        this.quantidadeImoveis++;
+
+        atualizarDados();
+
+    }
+
+    // cria casa recebendo o objeto casa
+    public void adicionarCasa(Casa casa) {
+
+        this.listaImoveis.add(this.quantidadeImoveis, casa);
 
         this.quantidadeImoveis++;
 
