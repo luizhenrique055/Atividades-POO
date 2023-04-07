@@ -6,15 +6,15 @@ import java.util.Map;
 
 public class Casa extends Imovel {
 
-    private final int NUMERO_DESCONTO_IDADE = 10;
-    private final double TAXA_VALOR_INICIAL = 0.005;
-    private final double PARCELAS_SEGURO_INCENDIO = 12;
+    private static final int NUMERO_DESCONTO_IDADE = 10;
+    private static final double TAXA_VALOR_INICIAL = 0.005;
+    private static final double PARCELAS_SEGURO_INCENDIO = 12;
     private double taxaSeguroIncendio;
 
     public Casa(double valorDeVenda, String enderecoImovel, int anoConstrucao, double taxaSeguroIncendio,
             ArrayList<String> listaDeExtras) {
 
-        super(valorDeVenda, enderecoImovel, anoConstrucao, listaDeExtras);
+        super(valorDeVenda, enderecoImovel, anoConstrucao, listaDeExtras, TAXA_VALOR_INICIAL);
 
         if (taxaSeguroIncendio > 0) {
             this.taxaSeguroIncendio = taxaSeguroIncendio;
@@ -34,16 +34,6 @@ public class Casa extends Imovel {
         double valorParcelas = this.taxaSeguroIncendio / PARCELAS_SEGURO_INCENDIO;
 
         setValorTotalAluguel((getValorInicialAluguel() + valorParcelas) - precoDescontoDeIdade());
-
-    }
-
-    @Override
-    protected void valorInicialAluguel() {
-
-        double total = getValorDeVenda() * TAXA_VALOR_INICIAL;
-        double acrescimos = total * getValorAcrescimos();
-
-        setValorInicialAluguel(total + acrescimos);
 
     }
 

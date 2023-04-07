@@ -14,7 +14,7 @@ public class Apartamento extends Imovel {
     // construtor
     public Apartamento(double valorDeVenda, String enderecoImovel, int anoConstrucao, double taxaMensalCondominio,
             ArrayList<String> stringDeExtras) {
-        super(valorDeVenda, enderecoImovel, anoConstrucao, stringDeExtras);
+        super(valorDeVenda, enderecoImovel, anoConstrucao, stringDeExtras, TAXA_VALOR_INICIAL);
 
         if (taxaMensalCondominio >= 0) {
             this.taxaMensalCondominio = taxaMensalCondominio;
@@ -27,13 +27,6 @@ public class Apartamento extends Imovel {
     }
 
     // metodos sobrescritos
-    @Override
-    protected void valorInicialAluguel() {
-        double total = getValorDeVenda() * TAXA_VALOR_INICIAL;
-        double acrescimos = total * getValorAcrescimos();
-
-        setValorInicialAluguel(total + acrescimos);
-    }
 
     @Override
     protected void valorTotalAluguel() {

@@ -11,6 +11,7 @@ public abstract class Imovel {
     private double valorTotalAluguel;
     private double valorInicialAluguel;
     private Map<String, Double> mapValoresExtras = new HashMap<String, Double>();
+    private double taxaValorInicial;
     private double valorAcrescimos;
     private double valorDeVenda;
     private String enderecoImovel;
@@ -32,9 +33,10 @@ public abstract class Imovel {
      * @param anoConstrucao  int (yyyy)
      * @param listaDeExtras  ArrayList<String>
      */
-    Imovel(double valorDeVenda, String enderecoImovel, int anoConstrucao, ArrayList<String> listaDeExtras) {
+    Imovel(double valorDeVenda, String enderecoImovel, int anoConstrucao, ArrayList<String> listaDeExtras,
+            double taxaValorInicial) {
 
-        inicializador(valorDeVenda, enderecoImovel, anoConstrucao);
+        inicializador(valorDeVenda, enderecoImovel, anoConstrucao, taxaValorInicial);
 
         if (!listaDeExtras.isEmpty()) {
             calcularValorExtras(listaDeExtras);
@@ -59,13 +61,14 @@ public abstract class Imovel {
     @Deprecated
     Imovel(double valorDeVenda, String enderecoImovel, int anoConstrucao) {
 
-        inicializador(valorDeVenda, enderecoImovel, anoConstrucao);
+        inicializador(valorDeVenda, enderecoImovel, anoConstrucao, taxaValorInicial);
 
     }
 
-    private void inicializador(double valorDeVenda, String enderecoImovel, int anoConstrucao) {
+    private void inicializador(double valorDeVenda, String enderecoImovel, int anoConstrucao, double taxaValorInicial) {
 
         this.valorAcrescimos = 0;
+        this.taxaValorInicial = taxaValorInicial;
 
         if (valorDeVenda >= 0) {
             this.valorDeVenda = valorDeVenda;
@@ -97,7 +100,14 @@ public abstract class Imovel {
     // metodos virtuais
     protected abstract void valorTotalAluguel();
 
-    protected abstract void valorInicialAluguel();
+    protected void valorInicialAluguel(){
+
+        double total = getValorDeVenda() * this.taxaValorInicial;
+        double acrescimos = total * getValorAcrescimos();
+
+        setValorInicialAluguel(total + acrescimos);
+
+    }
 
     /**
      * Retorna o valor do preço de desconto da idade do imovel.
@@ -161,5 +171,6 @@ public abstract class Imovel {
     public void setValorInicialAluguel(double valorInicialAluguel) {
         this.valorInicialAluguel = valorInicialAluguel;
     }
+
     // #endregion
 }
