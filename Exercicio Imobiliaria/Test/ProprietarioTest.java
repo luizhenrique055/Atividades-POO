@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
+import Class.Apartamento;
+import Class.Casa;
 import Class.Proprietario;
 
 public class ProprietarioTest {
@@ -28,7 +30,7 @@ public class ProprietarioTest {
     }
 
     @Test
-    public void testCalcularValorBrutoAlugueis() {
+    public void testCalcularValorBrutoAlugueisComApartamento() {
         ArrayList<String> listaDeExtras1 = new ArrayList<String>();
         proprietario.adicionarApartamento(500000, "Rua Teste, 123", 2023, 500, listaDeExtras1); // 2500
         ArrayList<String> listaDeExtras2 = new ArrayList<String>();
@@ -89,6 +91,87 @@ public class ProprietarioTest {
         ArrayList<String> listaDeExtras2 = new ArrayList<String>();
         proprietario.adicionarApartamento(600000, "Avenida Teste, 456", 2023, 600, listaDeExtras2);// 3000
         assertEquals(5368, proprietario.getValorLiquidoAlugueis(), 0.01);
+    }
+
+    @Test
+    public void testAdicionarCasa() {
+        ArrayList<String> listaDeExtras = new ArrayList<String>();
+        listaDeExtras.add("piscina");
+        listaDeExtras.add("garagem");
+        proprietario.adicionarCasa(200000, "Rua Teste, 123", 2020, 120, listaDeExtras);
+        assertEquals(1, proprietario.getQuantidadeImoveis());
+    }
+
+    @Test
+    public void testCalcularValorBrutoAlugueisComCasa() {
+        ArrayList<String> listinha = new ArrayList<String>();
+        listinha.add("PiSCina");
+        listinha.add("Garagem");
+
+        Casa casa1 = new Casa(200000, "Rua Teste 1", 3, 120, listinha); // 920
+        Casa casa2 = new Casa(200000, "Rua Teste 2", 3, 120, listinha);// 920
+
+        Proprietario proprietario = new Proprietario(21321, "Luiz H.");
+        proprietario.adicionarCasa(casa1);
+        proprietario.adicionarCasa(casa2);
+
+        assertEquals(proprietario.getValorBrutoAlugueis(), 1840, 0.001);
+
+    }
+
+    @Test
+    public void testCalcularValorLiquidoAlugueisComCasa() {
+        ArrayList<String> listinha = new ArrayList<String>();
+        listinha.add("PiSCina");
+        listinha.add("Garagem");
+
+        Casa casa1 = new Casa(200000, "Rua Teste 1", 3, 120, listinha); // 920
+        Casa casa2 = new Casa(200000, "Rua Teste 2", 3, 120, listinha);// 920
+
+        Proprietario proprietario = new Proprietario(21321, "Luiz H.");
+        proprietario.adicionarCasa(casa1);
+        proprietario.adicionarCasa(casa2);
+
+        assertEquals(proprietario.getValorLiquidoAlugueis(), 1619.2, 0.001);
+
+    }
+
+    @Test
+    public void testCalcularValorBruto_Casa_Apartamento() {
+        ArrayList<String> listinha = new ArrayList<String>();
+        listinha.add("PiSCina");
+        listinha.add("Garagem");
+
+        Casa casa1 = new Casa(200000, "Rua Teste 1", 3, 120, listinha); // 920
+
+        Apartamento ap = new Apartamento(200000, null, 2000, 1000, listinha); // 1832
+
+        Proprietario proprietario = new Proprietario(21321, "Luiz H.");
+
+        proprietario.adicionarCasa(casa1);
+        proprietario.adicionarApartamento(ap);
+
+        assertEquals(proprietario.getValorBrutoAlugueis(), 2752, 0.001);
+
+    }
+
+    @Test
+    public void testCalcularValorLiquido_Casa_Apartamento() {
+        ArrayList<String> listinha = new ArrayList<String>();
+        listinha.add("PiSCina");
+        listinha.add("Garagem");
+
+        Casa casa1 = new Casa(200000, "Rua Teste 1", 3, 120, listinha); // 920
+
+        Apartamento ap = new Apartamento(200000, null, 2000, 1000, listinha); // 1832
+
+        Proprietario proprietario = new Proprietario(21321, "Luiz H.");
+
+        proprietario.adicionarCasa(casa1);
+        proprietario.adicionarApartamento(ap);
+
+        assertEquals(proprietario.getValorLiquidoAlugueis(), 2421.76, 0.001);
+
     }
 
 }
