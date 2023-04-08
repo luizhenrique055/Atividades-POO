@@ -23,7 +23,6 @@ public class Casa extends Imovel {
         }
 
         valorInicialAluguel();
-        precoDescontoDeIdade();
         valorTotalAluguel();
 
     }
