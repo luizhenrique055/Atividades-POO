@@ -21,20 +21,16 @@ public class ProprietarioTest {
     }
 
     @Test
-    public void testAdicionarApartamento() {
-        ArrayList<String> listaDeExtras = new ArrayList<String>();
-        listaDeExtras.add("piscina");
-        listaDeExtras.add("garagem");
-        proprietario.adicionarApartamento(500000, "Rua Teste, 123", 2020, 500, listaDeExtras);
-        assertEquals(1, proprietario.getQuantidadeImoveis());
-    }
-
-    @Test
     public void testCalcularValorBrutoAlugueisComApartamento() {
         ArrayList<String> listaDeExtras1 = new ArrayList<String>();
-        proprietario.adicionarApartamento(500000, "Rua Teste, 123", 2023, 500, listaDeExtras1); // 2500
+        Apartamento ap = new Apartamento(500000, "Rua Teste, 123", 2023, 500, listaDeExtras1); // 2500
         ArrayList<String> listaDeExtras2 = new ArrayList<String>();
-        proprietario.adicionarApartamento(600000, "Avenida Teste, 456", 2023, 600, listaDeExtras2);
+        Apartamento ap2 = new Apartamento(600000, "Avenida Teste, 456", 2023, 600, listaDeExtras2);
+
+        Proprietario proprietario = new Proprietario(12312, "zezin");
+        proprietario.adicionarImovel(ap2);
+        proprietario.adicionarImovel(ap);
+
         assertEquals(5500, proprietario.getValorBrutoAlugueis(), 0.01);
     }
 
@@ -43,18 +39,31 @@ public class ProprietarioTest {
         ArrayList<String> listaDeExtras1 = new ArrayList<String>();
         listaDeExtras1.add("PiSCina");
         listaDeExtras1.add("Garagem");
-        proprietario.adicionarApartamento(500000, "Rua Teste, 123", 2023, 500, listaDeExtras1); // 3100
+
+        Apartamento ap = new Apartamento(500000, "Rua Teste, 123", 2023, 500, listaDeExtras1); // 3100
+
         ArrayList<String> listaDeExtras2 = new ArrayList<String>();
-        proprietario.adicionarApartamento(600000, "Avenida Teste, 456", 2023, 600, listaDeExtras2);// 3000
+        Apartamento ap2 = new Apartamento(600000, "Avenida Teste, 456", 2023, 600, listaDeExtras2);// 3000
+
+        Proprietario proprietario = new Proprietario(12312, "zezin");
+        proprietario.adicionarImovel(ap2);
+        proprietario.adicionarImovel(ap);
+
         assertEquals(6100, proprietario.getValorBrutoAlugueis(), 0.01);
     }
 
     @Test
     public void testCalcularValorComissaoAdiministradora() {
         ArrayList<String> listaDeExtras1 = new ArrayList<String>();
-        proprietario.adicionarApartamento(500000, "Rua Teste, 123", 2023, 500, listaDeExtras1); // 2500
+        Apartamento ap = new Apartamento(500000, "Rua Teste, 123", 2023, 500, listaDeExtras1); // 2500
+
         ArrayList<String> listaDeExtras2 = new ArrayList<String>();
-        proprietario.adicionarApartamento(600000, "Avenida Teste, 456", 2023, 600, listaDeExtras2); // 3000
+        Apartamento ap2 = new Apartamento(600000, "Avenida Teste, 456", 2023, 600, listaDeExtras2); // 3000
+
+        Proprietario proprietario = new Proprietario(12312, "zezin");
+        proprietario.adicionarImovel(ap2);
+        proprietario.adicionarImovel(ap);
+
         assertEquals(660, proprietario.getValorComissaoAdm(), 0.01);
     }
 
@@ -63,9 +72,16 @@ public class ProprietarioTest {
         ArrayList<String> listaDeExtras1 = new ArrayList<String>(); // 0.3
         listaDeExtras1.add("PiSCina");
         listaDeExtras1.add("Garagem");
-        proprietario.adicionarApartamento(500000, "Rua Teste, 123", 2023, 500, listaDeExtras1); // 3100
+
+        Apartamento ap = new Apartamento(500000, "Rua Teste, 123", 2023, 500, listaDeExtras1); // 3100
+
         ArrayList<String> listaDeExtras2 = new ArrayList<String>();
-        proprietario.adicionarApartamento(600000, "Avenida Teste, 456", 2023, 600, listaDeExtras2); // 3000
+        Apartamento ap2 = new Apartamento(600000, "Avenida Teste, 456", 2023, 600, listaDeExtras2); // 3000
+
+        Proprietario proprietario = new Proprietario(12312, "zezin");
+        proprietario.adicionarImovel(ap2);
+        proprietario.adicionarImovel(ap);
+
         assertEquals(732, proprietario.getValorComissaoAdm(), 0.01);
     }
 
@@ -74,11 +90,19 @@ public class ProprietarioTest {
         ArrayList<String> listaDeExtras1 = new ArrayList<String>(); // 0.3
         listaDeExtras1.add("PiSCina");
         listaDeExtras1.add("Garagem");
-        proprietario.adicionarApartamento(500000, "Rua Teste, 123", 2023, 500, listaDeExtras1); // 3100
+
+        Apartamento ap = new Apartamento(500000, "Rua Teste, 123", 2023, 500, listaDeExtras1); // 3100
+
         ArrayList<String> listaDeExtras2 = new ArrayList<String>();
         listaDeExtras2.add("PiSCina");
         listaDeExtras2.add("Garagem");
-        proprietario.adicionarApartamento(600000, "Avenida Teste, 456", 2023, 600, listaDeExtras2); // 3000
+
+        Apartamento ap2 = new Apartamento(600000, "Avenida Teste, 456", 2023, 600, listaDeExtras2); // 3000
+
+        Proprietario proprietario = new Proprietario(12312, "zezin");
+        proprietario.adicionarImovel(ap2);
+        proprietario.adicionarImovel(ap);
+
         assertEquals(818.4, proprietario.getValorComissaoAdm(), 0.01);
     }
 
@@ -87,9 +111,15 @@ public class ProprietarioTest {
         ArrayList<String> listaDeExtras1 = new ArrayList<String>();
         listaDeExtras1.add("PiSCina");
         listaDeExtras1.add("Garagem");
-        proprietario.adicionarApartamento(500000, "Rua Teste, 123", 2023, 500, listaDeExtras1); // 3100
+
+        Apartamento ap = new Apartamento(500000, "Rua Teste, 123", 2023, 500, listaDeExtras1); // 3100
         ArrayList<String> listaDeExtras2 = new ArrayList<String>();
-        proprietario.adicionarApartamento(600000, "Avenida Teste, 456", 2023, 600, listaDeExtras2);// 3000
+        Apartamento ap2 = new Apartamento(600000, "Avenida Teste, 456", 2023, 600, listaDeExtras2);// 3000
+
+        Proprietario proprietario = new Proprietario(12312, "zezin");
+        proprietario.adicionarImovel(ap2);
+        proprietario.adicionarImovel(ap);
+
         assertEquals(5368, proprietario.getValorLiquidoAlugueis(), 0.01);
     }
 
@@ -98,7 +128,11 @@ public class ProprietarioTest {
         ArrayList<String> listaDeExtras = new ArrayList<String>();
         listaDeExtras.add("piscina");
         listaDeExtras.add("garagem");
-        proprietario.adicionarCasa(200000, "Rua Teste, 123", 2020, 120, listaDeExtras);
+        Casa casa = new Casa(200000, "Rua Teste, 123", 2020, 120, listaDeExtras);
+
+        Proprietario proprietario = new Proprietario(12312, "zezin");
+        proprietario.adicionarImovel(casa);
+
         assertEquals(1, proprietario.getQuantidadeImoveis());
     }
 
@@ -112,8 +146,8 @@ public class ProprietarioTest {
         Casa casa2 = new Casa(200000, "Rua Teste 2", 3, 120, listinha);// 920
 
         Proprietario proprietario = new Proprietario(21321, "Luiz H.");
-        proprietario.adicionarCasa(casa1);
-        proprietario.adicionarCasa(casa2);
+        proprietario.adicionarImovel(casa1);
+        proprietario.adicionarImovel(casa2);
 
         assertEquals(proprietario.getValorBrutoAlugueis(), 1840, 0.001);
 
@@ -129,8 +163,8 @@ public class ProprietarioTest {
         Casa casa2 = new Casa(200000, "Rua Teste 2", 3, 120, listinha);// 920
 
         Proprietario proprietario = new Proprietario(21321, "Luiz H.");
-        proprietario.adicionarCasa(casa1);
-        proprietario.adicionarCasa(casa2);
+        proprietario.adicionarImovel(casa1);
+        proprietario.adicionarImovel(casa2);
 
         assertEquals(proprietario.getValorLiquidoAlugueis(), 1619.2, 0.001);
 
@@ -148,8 +182,8 @@ public class ProprietarioTest {
 
         Proprietario proprietario = new Proprietario(21321, "Luiz H.");
 
-        proprietario.adicionarCasa(casa1);
-        proprietario.adicionarApartamento(ap);
+        proprietario.adicionarImovel(casa1);
+        proprietario.adicionarImovel(ap);
 
         assertEquals(proprietario.getValorBrutoAlugueis(), 2752, 0.001);
 
@@ -167,8 +201,8 @@ public class ProprietarioTest {
 
         Proprietario proprietario = new Proprietario(21321, "Luiz H.");
 
-        proprietario.adicionarCasa(casa1);
-        proprietario.adicionarApartamento(ap);
+        proprietario.adicionarImovel(casa1);
+        proprietario.adicionarImovel(ap);
 
         assertEquals(proprietario.getValorLiquidoAlugueis(), 2421.76, 0.001);
 
