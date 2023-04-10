@@ -4,7 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import Class.Apartamento;
@@ -12,13 +11,6 @@ import Class.Casa;
 import Class.Proprietario;
 
 public class ProprietarioTest {
-
-    private Proprietario proprietario;
-
-    @Before
-    public void setUp() {
-        proprietario = new Proprietario(155, "jose");
-    }
 
     @Test
     public void testCalcularValorBrutoAlugueisComApartamento() {
