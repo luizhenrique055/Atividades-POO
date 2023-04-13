@@ -112,7 +112,7 @@ public abstract class Imovel {
     /**
      * Retorna o valor do preço de desconto da idade do imovel.
      * 
-     * @return double (ValorTotalImovel * descontoDaIdade)
+     * @return double (ValorInicialImovel * descontoDaIdade)
      */
     protected abstract double precoDescontoDeIdade();
 
