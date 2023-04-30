@@ -5,6 +5,7 @@
 *~
 *.vscode
 *.dia~
+ET2/
 
 # Github gitignore repository
 # Compiled class file
