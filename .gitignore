@@ -5,7 +5,7 @@
 *~
 *.vscode
 *.dia~
-ET2/
+# *TesteManualDeLogicasUsadas.java
 
 # Github gitignore repository
 # Compiled class file
@@ -21,7 +21,7 @@ ET2/
 .mtj.tmp/
 
 # Package Files #
-*.jar
+*.jara
 *.war
 *.nar
 *.ear
